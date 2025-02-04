@@ -149,8 +149,8 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
    kubectl delete service mysql-service 
    ```
    
-## Deployment using YAML files (the easiest way)
-In this section, the MySQL image will be deployed over the GKE cluster using YAML files. A YAML file is a file containing the configuration used to set the deployment and the service.
+## Deployment using YAML files (the easy way)
+In this section, the MySQL image will be deployed over the GKE cluster using YAML files. A YAML file contains the configuration used to set the deployment and the service.
 1. Clone the GitHub repository
    ```cmd 
    cd ~
@@ -167,24 +167,25 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
    *	**First two lines**: indicate the type of the YAML configuration and its version.
    *	**Line 4**: provides a name for the deployment.
    *	**Line 6**: indicates that only a single pod will be used
-   *	**Line 9**: provides the name of the application that will be accessed by the pod.
+   *	**Line 9**: provides the name of the application that the pod accesses.
    *	**Line 16**: provides the ID of the Docker image to be deployed
-   *	**Lines 19-24**: define image-dependent environment variables that define username/password (**user/sofe3980u**), and a schema (**Readings**).
-   *	**Line 26**: defines the port number that will be used by the image.
+   *	**Lines 19-24**: define image-dependent environment variables that define username/password (**user/sofe3980u**) and a schema (**Readings**).
+   *	**Line 26**: defines the port number that the image uses.
       
       ![MS3 figure2](figures/cl3-2.jpg) 
 
-   You can refer to the documentation of the **mysql/mysql-server** Docker image for the list of all supported enviroment variables (like thoss in lines 19:26) and their usage.
+   You can refer to the documentation of the **mysql/mysql-server** Docker image for the list of all supported environment variables (like those in lines 19:26) and their usage.
 3. The status of the deployment can be checked by the following command
    ```cmd 
    kubectl get deployment 
    ```
-4. While the status of pods can be accessed by the following command 
+4. The following command prints the status of pods
    ```cmd 
    kubectl get pods  
    ```
-   check that the deployment is available and that the pod is running successfully (it may take some time until everything is settled down)
-5. To give the deployment an IP address 
+   to check the availability of the deployment and the successful running of the pod (it may take some time until everything is settled down).
+   
+6. To associate an UP to the deployment
    1. A load Balancer service should be created using the mysql-service.yaml file from the cloned gitHub
       ```cmd 
       cd ~/SOFE3980U-Lab3/MySQL
@@ -203,7 +204,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
       ![MS3 figure4](figures/cl3-4.jpg)      
       
       It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command.
-6. To access the MySQL server using the IP address,
+7. To access the MySQL server using the IP address,
    1. From the GCP console ( or any other device in which MySQL client is installed), run the following commands. Before running the command, replace the **\<IP-address\>** with the external IP obtained in the previous step. The options -u, -p**, and **-h** are used to specify the **username**, **password**, and **host IP** of the deployed server, respectively. 
       ```cmd
       mysql -uuser -psofe3980u -h<IP-address>
