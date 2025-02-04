@@ -106,7 +106,7 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       show databases; 
       ```
       to display all available schemas.
-   6. To exit MySQL CLI, execute 
+   6. To exit drom the MySQL CLI, execute 
       ```sql
       exit 
       ```
@@ -120,7 +120,7 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       CREATE USER 'user'@'%' IDENTIFIED BY 'sofe3980u'; 
       GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION; 
       ```
-   9. exit MySQL CLI.
+   9. Exit from the MySQL CLI.
 5. To associate the deployment with an IP address,
    1. A load Balancer service, **mysql-service**, should be created for that deployment. The load Balancer distributes the requests and workload between the replicas in the deployment (why this is not important in our case?) and associates an IP to access the deployed application.
       ```cmd
@@ -140,6 +140,9 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       ```cmd
       mysql -uuser -psofe3980u -h<IP-address> 
       ```
+      
+   4.  exit from the MySQL CLI.
+      
 7. To delete the deployment and the service
    ```cmd
    kubectl delete deployment mysql-deployment 
