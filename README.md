@@ -20,11 +20,11 @@ Docker, Kubernetes and GKE
 
     ![a1](figures/a1.jpg)  
 
-3. Fill the account information and accept the terms of services. 
+3. Fill the account information and accept the terms of service. 
 
     ![a2](figures/a2.jpg)  
 
-4. In the next step, you will fill in your personal information and a credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
+4. In the next step, you will fill in your personal and credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
 
     ![a3](figures/a3.jpg)  
 
@@ -35,37 +35,39 @@ Docker, Kubernetes and GKE
 6.	Get yourself familiar with
    * **the Dashboard**: allows you to search and select available cloud services
    * **project(s)**: a project usually named **My First Project** will be created by default. You can create, edit, and delete projects.
-   * **the console**: By clicking the console icon, the console will be opened to you. The console is a Linux terminal that can be used to configure the cloud. Any commands that affect the console's local OS will be temporary and lost whenever the session is closed while any change made to any cloud services will be permanent.
+   * **the console**: By clicking the console icon, the console open for you. The console is a Linux terminal that can be used to configure the cloud. Any commands affecting the console's local OS will be temporary and lost whenever the session is closed, while any change made to cloud services will be permanent.
      
         ![a5](figures/a5.jpg)  
       
-        The console will be opened at the bottom of the page as shown in the following figure and from it we can exchange files and folders with your local computer by downloading or uploading them. You can also click **Open Editor** button to open the editor.
+        The console will be opened at the bottom of the page, as shown in the following figure, and from it, files and folders can be exchanged with your local computer by downloading or uploading them. You can also click the **Open Editor** button to open the editor.
       
         ![a6](figures/a6.jpg)  
 
-   * **the editor**: It’s a text editor that allows you to edit plain text files as shown in the following figure. You can switch back to the console by clicking **Open Terminal** button. 
+   * **the editor**: It’s a text editor that allows you to edit plain text files, as shown in the following figure. You can switch back to the console by clicking the **Open Terminal** button. 
 
         ![a7](figures/a7.jpg)  
       
-## Setup Google Kubernetes Engine (GKE)
-To setup GKE, execute the following commands through the console within your Google Cloud Platform (GCP) project.
-
-   1. Set the default compute zone to **northamerica-northeast1-b** 
-      ```cmd
-      gcloud config set compute/zone northamerica-northeast1-b  
-      ```
-   2. Enable GKE by searching for **Kubernetes Engine**. Select **Kubernetes Engine API**. Finally, click **Enable**. 
+## Setting up Google Kubernetes Engine (GKE)
+To set up Google Kubernetes Engine (**GKE**), open the console of the project you have created within the Google Cloud Platform (GCP) during the first milestone.
+1. Set the default compute zone to **northamerica-northeast1-b**
    
-      ![MS3 figure1](figures/cl3-1.jpg)
+   ```cmd
+   gcloud config set compute/zone northamerica-northeast1-b  
+   ```
+    
+2. Enable GKE by searching for **Kubernetes Engine**. Select **Kubernetes Engine API**. Then, click **Enable**.
    
-   3. Wait until the API is enabled then, create a cluster on GKE called **sofe3980u**. The cluster contains three nodes. A Node is a worker machine in which docker images and applications can be deployed.
-      ```cmd
-      gcloud container clusters create sofe3980u --num-nodes=3 
-      ```
+   ![MS3 figure1](figures/cl3-1.jpg)
+   
+3. Wait until the API is enabled. Then, create a three-node cluster on GKE called **sofe4630u**. A Node is a worker machine in which docker images and applications can be deployed.
+   
+   ```cmd
+   gcloud container clusters create sofe4630u --num-nodes=3 
+   ```
       
-   **Note**: if the authorization windows popped up, click Authorize.
+   **Note**: if the authorization windows pop up, click Authorize
    
-   **Note**: if you got an error that there are no available resources to create the nodes, you may need to change the default compute zone (e.g. to **us-central1-a**) 
+   **Note**: if you get an error that there are no available resources to create the nodes, you may need to change the default compute zone (e.g., to **us-central1-a**) or reduce the number of nodes.
 
 ## Deploy MySQL server on GKE
 As an example of Docker images, we will deploy a pre-existing MySQL image.
