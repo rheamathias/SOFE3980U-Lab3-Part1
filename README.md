@@ -185,7 +185,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
    ```
    to check the availability of the deployment and the successful running of the pod (it may take some time until everything is settled down).
    
-6. To associate an UP to the deployment
+6. To associate an IP to the deployment
    1. A load Balancer service should be created using the mysql-service.yaml file from the cloned gitHub
       ```cmd 
       cd ~/SOFE3980U-Lab3/MySQL
@@ -197,7 +197,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
       
          ![MS3 figure3](figures/cl3-3.jpg)      
    
-   2. To check the status of the service, use this command 
+   2. To print the status of the service, use this command 
       ```cmd 
       kubectl get service 
       ```
