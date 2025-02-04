@@ -18,19 +18,19 @@ Docker, Kubernetes and GKE
 1.	Creating a new Gmail account is recommended. However, you can use an existing one if you haven't started the GCP free trial in that account (**don't use the university's official email**).
 2.	Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for free** button  
 
-   ![a1](figures/a1.jpg)  
+    ![a1](figures/a1.jpg)  
 
 3.	Fill in the account information and accept the terms of services  
 
-   ![a2](figures/a2.jpg)  
+    ![a2](figures/a2.jpg)  
 
 4.	In the next step, you will fill in your personal information and credit card information. That information is to ensure that you are a real person. This will create a free account for 90 days and give you 300+ $ free credits. **No charges are made unless you upgrade to a paid Cloud Billing account**. Please read [the GCP billing verification](https://cloud.google.com/free/docs/free-cloud-features#billing_verification) for more information.  
 
-   ![a3](figures/a3.jpg)  
+    ![a3](figures/a3.jpg)  
 
 5.	Fill in the final survey. Then, click **Done**. You can safely skip any given offers.  
 
-   ![a4](figures/a4.jpg)  
+    ![a4](figures/a4.jpg)  
 
 6.	Get yourself familiar with
    * **the Dashboard**: allows you to search and select available cloud services
