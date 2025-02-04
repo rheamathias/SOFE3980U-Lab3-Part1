@@ -1,6 +1,6 @@
 # Milestone 3: Deploying using Google Kubernetes Engine
 
-After creating the web application, it has to be deployed. This web application will be containerized into a **Docker image**. Then, the container would be deployed over **Google Cloud Platform (GCP)** using a container orchestrating tool (**Kubernetes**).
+After creating the web application, it has to be deployed. This web application will be containerized into a **Docker image**. Then, the container would be deployed over the **Google Cloud Platform (GCP)** using a container orchestrating tool (**Kubernetes**).
 
 ## Objectives:
 1. Get Familiar with Docker and Kubernetes.
@@ -12,11 +12,11 @@ After creating the web application, it has to be deployed. This web application 
 
 Docker, Kubernetes and GKE
 1.	Watch The following video to understand [Docker terminologies](https://youtu.be/rOTqprHv1YE).  
-2.	To manage Docker images and applications, we will use Kubernetes, the following video explains [Kubernetes and its components](https://youtu.be/cC46cg5FFAM).
+2.	To manage Docker images and applications, we will use Kubernetes; the following video explains [Kubernetes and its components](https://youtu.be/cC46cg5FFAM).
 
 ## Creating GCP account
-1.	It’s recommended to create a new Gmail account, but you can use an already existing account (**don't use the university official email**).
-2.	Go to [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for free** button  
+1.	Creating a new Gmail account is recommended. However, you can use an existing one if you haven't started the GCP free trial in that account (**don't use the university's official email**).
+2.	Go to the [GCP official site](https://cloud.google.com/gcp). Be sure that you are using the correct account. Then, click on **Get Started for free** button  
 
    ![a1](figures/a1.jpg)  
 
