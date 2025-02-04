@@ -175,7 +175,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
       ![MS3 figure2](figures/cl3-2.jpg) 
 
    You can refer to the documentation of the **mysql/mysql-server** Docker image for the list of all supported environment variables (like those in lines 19:26) and their usage.
-3. The status of the deployment can be checked by the following command
+3. The following command checks the status of the deployment
    ```cmd 
    kubectl get deployment 
    ```
@@ -183,17 +183,17 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
    ```cmd 
    kubectl get pods  
    ```
-   to check the availability of the deployment and the successful running of the pod (it may take some time until everything is settled down).
+   Check the deployment's availability and the pod's successful running (it may take some time until everything is settled down).
    
 6. To associate an IP to the deployment
-   1. A load Balancer service should be created using the mysql-service.yaml file from the cloned gitHub
+   1. A load Balancer service should be created using the mysql-service.yaml file from the cloned GitHub
       ```cmd 
       cd ~/SOFE3980U-Lab3/MySQL
       kubectl create -f mysql-service.yaml
       ```
       The important lines in the mysql-service.yaml file are:
-      * **Line 8**: the port number that will be assigned to the external IP
-      * **Line 10**:  the name of the application that will be targeted by the service.
+      * **Line 8**: the port number that will be assigned to the external IP.
+      * **Line 10**:  the name of the application the service targets.
       
          ![MS3 figure3](figures/cl3-3.jpg)      
    
@@ -205,10 +205,12 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
       
       It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command.
 7. To access the MySQL server using the IP address,
-   1. From the GCP console ( or any other device in which MySQL client is installed), run the following commands. Before running the command, replace the **\<IP-address\>** with the external IP obtained in the previous step. The options -u, -p**, and **-h** are used to specify the **username**, **password**, and **host IP** of the deployed server, respectively. 
+   1. Run the following commands from the GCP console (or any other device on which the MySQL client is installed). Before running the command, replace the **\<IP-address\>** with the external IP obtained in the previous step. The options **-u**, **-p**, and **-h** specify the deployed server's **username**, **password**, and **host IP**, respectively.
+      
       ```cmd
       mysql -uuser -psofe3980u -h<IP-address>
       ```
+      
    2. Try to run the following SQL statements 
       ```sql
       use Readings; 
@@ -218,12 +220,12 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
       insert into meterType values(3,'losang',155); 
       select * from meterType where cost>=110; 
       ```
-   3. Exit the MySQL CLI, by running
+   4. Exit the MySQL CLI, by running
       ```sql
       exit
       ```
    
-   4. To delete the deployment and the service, use the following command 
+   5. To delete the deployment and the service, use the following command 
        ```cmd
       cd ~/SOFE3980U-Lab3/MySQL
       kubectl delete -f mysql-deploy.yaml
