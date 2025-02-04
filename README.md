@@ -70,23 +70,23 @@ To set up Google Kubernetes Engine (**GKE**), open the console of the project yo
    **Note**: if you get an error that there are no available resources to create the nodes, you may need to change the default compute zone (e.g., to **us-central1-a**) or reduce the number of nodes.
 
 ## Deploy MySQL server on GKE
-As an example of Docker images, we will deploy a pre-existing MySQL image.
+We will deploy a pre-existing MySQL image as an example of a Docker image.
 1. Through the console of your GCP project, execute the following command to pull the MySQL image and deploy it over a pod in GKE.
    ```cmd
    kubectl create deployment mysql-deployment --image mysql/mysql-server --port=3306 
    ```
    Deployment's role is to orchestrate docker applications. It would pull the **mysql/mysql-server** Docker image and deploy and enable the **3306** port number to allow access from the outside world. **mysql-deployment** is the name that Kubernetes will use to access this deployment. Only one pod (replica) will be created per deployment by default.
-2. The status of the deployment can be checked by the following command 
+2. The following command checks the status of the deployment 
    ```cmd
    kubectl get deployments 
    ```
-3. While the status of the pod can be accessed by the following command 
+3. While the following command accesses the status of the pod 
    ```cmd
    kubectl get pods 
    ```
    Check that the deployment is available and that the pod is running successfully (it may take some time until everything is settled down) 
-4. To access the MySQL logs,  
-   1. According to the [image documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation-docker.html), as we didn't specify the root password, it will be generated randomly. To get that password, the logs generated locally by the pod should be accessed and searched for the line containing the randomly generated password. This can be achieved using the following command after replacing **\<pod-name\>** with the pod name obtained by the previous step.
+4. To access the MySQL logs,
+   1. According to the [image documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation-docker.html), the root password will be generated randomly because we didn't specify it during pod creation. To get that password, we access the logs generated locally by the pod and searche them for the line containing the randomly generated password. This can be achieved using the following command after replacing **\<pod-name\>** with the pod name obtained by the previous step.
       ```cmd
       kubectl logs <pod-name> |grep GENERATED 
       ```
@@ -121,7 +121,7 @@ As an example of Docker images, we will deploy a pre-existing MySQL image.
       GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION; 
       ```
    9. Now exit the MySQL CLI, if you are already logged into it. 
-5. To give the deployment an IP address 
+6. To give the deployment an IP address 
    1. A load Balancer service, **mysql-service**, should be created to that deployment. The load Balancer distributes the requests and workload between the replicas in the deployment (why this is not important in our case?) and associates an IP to the access the deployed application.
       ```cmd
       kubectl expose deployment mysql-deployment --type=LoadBalancer --name=mysql-service 
@@ -139,7 +139,7 @@ As an example of Docker images, we will deploy a pre-existing MySQL image.
       ```cmd
       mysql -uuser -psofe3980u -h<IP-address> 
       ```
-6. To delete the deployment and the service
+7. To delete the deployment and the service
    ```cmd
    kubectl delete deployment mysql-deployment 
    kubectl delete service mysql-service 
