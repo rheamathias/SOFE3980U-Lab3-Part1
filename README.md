@@ -286,7 +286,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 8. Get the IP associated with the service and access the application with that IP at port 8080 using the **http** protocol.
 
 ## Discussion:
-1. Briefly summarize what you have learned about docker and Kubernetes including the used terminologies and their descriptions. 
+1. Briefly summarize what you have learned about docker and Kubernetes, including their terminologies and descriptions.
 2. What are the advantages and disadvantages of using docker images?
 
 ## Design:
