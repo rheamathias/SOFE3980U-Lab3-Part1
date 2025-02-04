@@ -280,7 +280,7 @@ In this section, We will create a new Docker image based on a previous version o
    kubectl expose deployment binarycalculator-deployment --type=LoadBalancer --name=binarycalculator-service 
    ```
    
-8. Get the IP associated with the service and access the application with that IP at port 8080.
+8. Get the IP associated with the service and access the application with that IP at port 8080 using **http** protocol.
 
 ## Discussion:
 1. Briefly summarize what you have learned about docker and Kubernetes including the used terminologies and their descriptions. 
