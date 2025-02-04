@@ -20,7 +20,7 @@ Docker, Kubernetes and GKE
 
     ![a1](figures/a1.jpg)  
 
-3. FFill the account information and accept the terms of services. 
+3. Fill the account information and accept the terms of services. 
 
     ![a2](figures/a2.jpg)  
 
