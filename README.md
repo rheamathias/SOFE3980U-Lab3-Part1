@@ -86,7 +86,7 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
    ```
    Check that the deployment is available and that the pod is running successfully (it may take some time until everything is settled down) 
 4. To access the MySQL logs,
-   1. According to the [image documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation-docker.html), the root password will be generated randomly because we didn't specify it during pod creation. To get that password, we access the logs generated locally by the pod and searche them for the line containing the randomly generated password. This can be achieved using the following command after replacing **\<pod-name\>** with the pod name obtained by the previous step.
+   1. According to the [image documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation-docker.html), the root password will be generated randomly because we didn't specify it during pod creation. To get that password, we access the logs generated locally by the pod and search them for the line containing the randomly generated password. This can be achieved using the following command after replacing **\<pod-name\>** with the pod name obtained by the previous step.
       ```cmd
       kubectl logs <pod-name> |grep GENERATED 
       ```
@@ -95,9 +95,9 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       ``` cmd
       kubectl exec -it  <pod-name>  -- mysql -uroot -p 
       ```
-      Kubernetes exec command allows you to execute a certain command within a certain pod in interactive (-i option) and by using the Linux terminal (-t option). The command we want to execute is mysql which opens a CLI to the MySQL database. It has two options, the first is **-u** followed by the username, i.e. root. The second is **-p** which asks you to enter the root password you got in a). Note, there is no whitespace between the **-u** and **root**.
+      Kubernetes exec command allows you to execute a particular command within a specific pod in interactive (-i option) and by using the Linux terminal (-t option). The command we want to execute is mysql which opens a CLI to the MySQL database. It has two options: **-u** followed by the username, i.e., root, and **-p** followed by the root password you got. **Note** that there is no whitespace between the **-u** and **root**.
       **Note**: for security reasons, the password remains invisible while you type or paste it.
-   4. After successful login to the MySQL server, it's recommended to change the root password, using the following MySQL command (don't forget to replace **\<new-password\>** with a password of your choice). 
+   4. After successful login to the MySQL server, it's recommended to change the root password using the following MySQL command (don't forget to replace **\<new-password\>** with a password of your choice). 
       ```sql
       ALTER USER 'root'@'localhost' IDENTIFIED BY '<new-password>' ; 
       ```
@@ -110,28 +110,29 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       ```sql
       exit 
       ```
-   7. To login again to the CLI, we must use the new password and you can add it to the mysql command
+   7. To login again to the CLI, use the new password after the **-p** option in the mysql command
       ```cmd
       kubectl exec -it  <pod-name>  -- mysql -uroot -p<root-password> 
       ```
       Again, there are no whitespaces between -p and the password
-   8. To create a new user, called **user** with a password **sofe3980u** and give all permissions to the user, use the following MySQL command 
+   8. To create a new user, called **user** with a password **sofe3980u**, and give all permissions to the user, use the following MySQL command 
       ```cmd
       CREATE USER 'user'@'%' IDENTIFIED BY 'sofe3980u'; 
       GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION; 
       ```
-   9. Now exit the MySQL CLI, if you are already logged into it. 
-6. To give the deployment an IP address 
-   1. A load Balancer service, **mysql-service**, should be created to that deployment. The load Balancer distributes the requests and workload between the replicas in the deployment (why this is not important in our case?) and associates an IP to the access the deployed application.
+   9. exit MySQL CLI.
+5. To associate the deployment with an IP address,
+   1. A load Balancer service, **mysql-service**, should be created for that deployment. The load Balancer distributes the requests and workload between the replicas in the deployment (why this is not important in our case?) and associates an IP to access the deployed application.
       ```cmd
       kubectl expose deployment mysql-deployment --type=LoadBalancer --name=mysql-service 
       ```
-      You can add two options; **--port** that specify the service port number, and **--target-port** that specifies the pod port number. If not specifies both will be the same as the port numbers already exposed via the deployment command. 
+      
+      You can add two options: **--port** specifying the service port number and **--target-port** specifying the pod port number. If not specifies, both will be the same as the port numbers already exposed via the deployment command. 
    2. To check the status of the service, use the following command
       ``` cmd
       kubectl get service 
       ```
-      It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command until the IP become available.
+      It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command until the IP becomes available.
       
       ![MS3 figure4](figures/cl3-4.jpg)      
 
