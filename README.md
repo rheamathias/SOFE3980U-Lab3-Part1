@@ -138,7 +138,7 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
       ``` cmd
       kubectl get service 
       ```
-      It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command until the IP becomes available.
+      It may take some time until the external IP address is changed from pending to a valid IP address. You may need to repeat the previous command or add the **--watch** flag until the IP becomes available.
       
       ![MS3 figure4](figures/cl3-4.jpg)      
 
