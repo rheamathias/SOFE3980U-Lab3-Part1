@@ -1,4 +1,4 @@
-# Milestone 3: Deploying using Google Kubernetes Engine
+# Lab 3: Deploying using Google Kubernetes Engine
 
 After creating the web application, it has to be deployed. This web application will be containerized into a **Docker image**. Then, the container would be deployed over the **Google Cloud Platform (GCP)** using a container orchestrating tool (**Kubernetes**).
 
@@ -80,6 +80,12 @@ We will deploy a pre-existing MySQL image as an example of a Docker image.
    ```cmd
    kubectl get deployments 
    ```
+   A tip to make it easier is to add the **--watch** argument to the command. You can use this argument for the commands below as well, such as get pods, get service, etc. And if you would like to terminate the command, just press **CTRL+C**.
+  
+   ```cmd 
+   kubectl get deployment --watch
+   ```
+
 3. While the following command accesses the status of the pod 
    ```cmd
    kubectl get pods 
