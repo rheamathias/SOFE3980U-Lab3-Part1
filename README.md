@@ -160,7 +160,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 1. Clone the GitHub repository
    ```cmd 
    cd ~
-   git clone https://github.com/GeorgeDaoud3/SOFE3980U-Lab3.git
+   git clone https://github.com/zubxxr/SOFE3980U-Lab3
    ```
 2. Run the following command to deploy the MySQL server 
    ```cmd 
