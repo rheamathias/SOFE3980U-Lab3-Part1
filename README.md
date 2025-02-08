@@ -321,4 +321,4 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 3. An audible video of about 3 minutes showing the deploying and executing of the Binary Calculator Application.
    - Make sure to show the IP of your application in the terminal and the launching of the IP URL in the browser.
 
-**Note**: Also make sure to delete the running deployments and services after you have submitted to avoid consuming credits.
+**Note**: Delete the running deployments and services after you have submitted to avoid consuming credits.
