@@ -1,4 +1,4 @@
-# Lab 3: Deploying using Google Kubernetes Engine
+# Lab 3 Part 1: Deploying using Google Kubernetes Engine
 
 After creating the web application, it has to be deployed. This web application will be containerized into a **Docker image**. Then, the container would be deployed over the **Google Cloud Platform (GCP)** using a container orchestrating tool (**Kubernetes**).
 
@@ -19,7 +19,7 @@ After creating the web application, it has to be deployed. This web application 
 3. Deploy Maven WebApp over Google Kubernetes Engine (GKE).
 
 ## Repository:
-[https://github.com/GeorgeDaoud3/SOFE3980U-Lab3.git](https://github.com/GeorgeDaoud3/SOFE3980U-Lab3.git)
+[https://github.com/zubxxr/SOFE3980U-Lab3-Part1](https://github.com/zubxxr/SOFE3980U-Lab3-Part1)
 
 Docker, Kubernetes and GKE
 1.	Watch The following video to understand [Docker terminologies](https://youtu.be/rOTqprHv1YE).  
@@ -171,11 +171,11 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 1. Clone the GitHub repository
    ```cmd 
    cd ~
-   git clone https://github.com/zubxxr/SOFE3980U-Lab3
+   git clone https://github.com/zubxxr/SOFE3980U-Lab3-Part1
    ```
 2. Run the following command to deploy the MySQL server 
    ```cmd 
-   cd ~/SOFE3980U-Lab3/MySQL
+   cd ~/SOFE3980U-Lab3-Part1/MySQL
    kubectl create -f mysql-deploy.yaml
    ```
    The command will deploy the template stored in the **mysql-deploy.yaml** into GKE. The file is shown in the following figure and can be interpreted as:
@@ -205,7 +205,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 6. To associate an IP to the deployment
    1. A load Balancer service should be created using the mysql-service.yaml file from the cloned GitHub
       ```cmd 
-      cd ~/SOFE3980U-Lab3/MySQL
+      cd ~/SOFE3980U-Lab3-Part1/MySQL
       kubectl create -f mysql-service.yaml
       ```
       The important lines in the mysql-service.yaml file are:
@@ -244,7 +244,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
    
    5. To delete the deployment and the service, use the following command 
        ```cmd
-      cd ~/SOFE3980U-Lab3/MySQL
+      cd ~/SOFE3980U-Lab3-Part1/MySQL
       kubectl delete -f mysql-deploy.yaml
       kubectl delete -f mysql-service.yaml
       ```  
@@ -252,7 +252,7 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
  new Docker image will be created in this section based on a previous version of the Maven project created at the second milestone, **BinaryCalculatorWebapp**, which will be converted into a Docker image. GKE will be used to Deploy it.
 1. From the GCP console, change the current directory to the path **/BinaryCalculatorWebapp** at the cloned repository. Then, build the application to generate the WAR file. 
    ```cmd
-   cd ~/SOFE3980U-Lab3/BinaryCalculatorWebapp
+   cd ~/SOFE3980U-Lab3-Part1/BinaryCalculatorWebapp
    mvn package
    ```
 2. The path also contains another file, **Dockerfile**. It contains the steps necessary to create the docker image. The steps can be summarized as:
