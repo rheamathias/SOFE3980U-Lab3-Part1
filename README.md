@@ -2,6 +2,17 @@
 
 After creating the web application, it has to be deployed. This web application will be containerized into a **Docker image**. Then, the container would be deployed over the **Google Cloud Platform (GCP)** using a container orchestrating tool (**Kubernetes**).
 
+# Table of Contents
+
+1. [Creating GCP account](#creating-gcp-account)
+2. [Setting up Google Kubernetes Engine (GKE)](#setting-up-google-kubernetes-engine-gke)
+3. [Deploy MySQL server on GKE](#deploy-mysql-server-on-gke)
+4. [Deployment using YAML files (the easy way)](#deployment-using-yaml-files-the-easy-way)
+5. [Deploy The Maven Project](deploy-the-maven-project)
+6. [Discussion](#discussion)
+7. [Design](#design)
+8. [Deliverables](#deliverables)
+
 ## Objectives:
 1. Get Familiar with Docker and Kubernetes.
 2. Use Google Cloud Platform.
@@ -303,8 +314,11 @@ In this section, the MySQL image will be deployed over the GKE cluster using YAM
 
 1. A report that includes
    * The discussion part.
-   * Git hub with your Binary Calculator Application and the YAML files.
+   * GitHub link with your Binary Calculator Application and the YAML files.
+   * Video Links
    * Instructions you used to create and deploy your application.
-   * The IP of Your application (will be checked by the grader)
 2. An audible video of about 5 minutes showing the MySQL deploying (the two techniques).  
 3. An audible video of about 3 minutes showing the deploying and executing of the Binary Calculator Application.
+   - Make sure to show the IP of your application in the terminal and the launching of the IP URL in the browser.
+
+**Note**: Also make sure to delete the running deployments and services after you have submitted to avoid consuming credits.
