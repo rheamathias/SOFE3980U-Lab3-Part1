@@ -13,7 +13,7 @@ spec:
         app: web-app
     spec:
       containers:
-        - image: my-web-app:latest
+        - image: eclipse-temurin:17-jdk-alpine
           name: web-app
           
           ports:
